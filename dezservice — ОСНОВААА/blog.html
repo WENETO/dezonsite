@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полезные статьи о дезинсекции и дератизации | DEZON</title>
+    <meta name="description" content="Статьи о борьбе с вредителями, методах профилактики, советы специалистов.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/web-background.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Специфичные стили для страницы блога */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/blog-header-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(12, 131, 70, 0.4) 0%, rgba(255, 152, 0, 0.3) 100%);
+            z-index: 1;
+        }
+        
+        .page-header h1 {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            color: var(--text-light);
+        }
+        
+        .blog-content {
+            padding: 80px 0;
+            background-color: rgba(248, 249, 250, 0.8); /* Серо-прозрачный фон */
+            position: relative;
+            overflow: hidden;
+            min-height: 800px;
+        }
+        
+        /* Анимированный фон для блога */
+        .blog-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, rgba(200, 200, 200, 0.1) 25%, transparent 25%, transparent 50%, rgba(200, 200, 200, 0.1) 50%, rgba(200, 200, 200, 0.1) 75%, transparent 75%, transparent);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .blog-strip {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: moveStrip 15s linear infinite;
+            z-index: 0;
+        }
+        
+        .strip-1 { top: 10%; left: -100px; width: 200px; height: 2px; animation-delay: 0s; }
+        .strip-2 { top: 30%; left: -150px; width: 300px; height: 1px; animation-delay: 3s; animation-duration: 20s; }
+        .strip-3 { top: 50%; left: -200px; width: 250px; height: 3px; animation-delay: 6s; animation-duration: 25s; }
+        .strip-4 { top: 70%; left: -120px; width: 180px; height: 2px; animation-delay: 9s; animation-duration: 18s; }
+        .strip-5 { top: 90%; left: -180px; width: 220px; height: 1px; animation-delay: 12s; animation-duration: 22s; }
+        
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        @keyframes moveStrip {
+            0% { transform: translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(calc(100vw + 200px)); opacity: 0; }
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blog-post {
+            background-color: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый фон */
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(12, 131, 70, 0.1);
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+        
+        .blog-post__image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(232, 245, 233, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-post__image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.2)"/></svg>');
+            background-size: cover;
+        }
+        
+        .image-placeholder {
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            color: var(--primary);
+        }
+        
+        .blog-post__content {
+            padding: 30px;
+            position: relative;
+        }
+        
+        .blog-post__category {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: var(--text-light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-post__title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            line-height: 1.3;
+            transition: var(--transition);
+        }
+        
+        .blog-post:hover .blog-post__title {
+            color: var(--primary-dark);
+        }
+        
+        .blog-post__excerpt {
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .blog-post__meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+        
+        .blog-post__link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .blog-post__link:hover {
+            color: var(--primary-dark);
+            gap: 10px;
+        }
+        
+        .blog-post__link:after {
+            content: '→';
+            transition: var(--transition);
+        }
+        
+        .blog-post__link:hover:after {
+            transform: translateX(5px);
+        }
+        
+        .faq-section {
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .faq-section h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .faq-item {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(12, 131, 70, 0.1);
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            position: relative;
+            color: var(--text-dark);
+            border-bottom: 1px solid var(--gray);
+            transition: var(--transition);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+        }
+        
+        .faq-question:hover {
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+        }
+        
+        .faq-question:after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .faq-item[open] .faq-question:after {
+            content: '−';
+            color: var(--secondary);
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            color: var(--gray-dark);
+            line-height: 1.7;
+            border-top: 1px solid var(--gray);
+            background-color: rgba(232, 245, 233, 0.3);
+        }
+        
+        .faq-answer p {
+            margin: 0;
+        }
+        
+        .subscribe {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--text-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .subscribe:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        .subscribe-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subscribe-content h2 {
+            color: var(--text-light);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subscribe-content p {
+            max-width: 600px;
+            margin: 20px auto 30px;
+            opacity: 0.9;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .subscribe-telegram {
+            text-align: center;
+            margin: 40px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #0088cc, #0077b3);
+            color: white;
+            padding: 18px 35px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .telegram-link:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 136, 204, 0.5);
+        }
+        
+        .telegram-link:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .telegram-link:hover:before {
+            left: 100%;
+        }
+        
+        .telegram-icon {
+            font-size: 1.8rem;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 30px auto;
+            gap: 10px;
+        }
+        
+        .subscribe-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+        
+        .subscribe-form input:focus {
+            background: var(--light);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        .subscribe-note {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 15px;
+            color: var(--text-light);
+        }
+        
+        /* Анимированный фон для всей страницы блога */
+        .blog-page {
+            position: relative;
+        }
+        
+        .blog-page:before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(150, 150, 150, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(100, 100, 100, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 20%);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Анимированный фон с паутинкой -->
+    <div class="web-background">
+        <div class="web-line web-1"></div>
+        <div class="web-line web-2"></div>
+        <div class="web-line web-3"></div>
+        <div class="web-line web-4"></div>
+        <div class="web-line web-5"></div>
+        <div class="web-line web-6"></div>
+        <div class="web-line web-7"></div>
+        <div class="web-line web-8"></div>
+        <div class="web-line web-9"></div>
+        <div class="web-line web-10"></div>
+        
+        <div class="web-grid"></div>
+        
+        <div class="spider spider-1"></div>
+        <div class="spider spider-2"></div>
+        <div class="spider spider-3"></div>
+        <div class="spider spider-4"></div>
+        <div class="spider spider-5"></div>
+        
+        <div class="web-drop drop-1"></div>
+        <div class="web-drop drop-2"></div>
+        <div class="web-drop drop-3"></div>
+        <div class="web-drop drop-4"></div>
+        <div class="web-drop drop-5"></div>
+    </div>
+
+    <!-- Анимированный фон сайта -->
+    <div class="site-background">
+        <div class="bg-particle p1"></div>
+        <div class="bg-particle p2"></div>
+        <div class="bg-particle p3"></div>
+        <div class="bg-particle p4"></div>
+        <div class="bg-particle p5"></div>
+        <div class="bg-particle p6"></div>
+        <div class="bg-particle p7"></div>
+        <div class="bg-particle p8"></div>
+        <div class="bg-particle p9"></div>
+        <div class="bg-particle p10"></div>
+        <div class="bg-shine"></div>
+    </div>
+
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">
+                <span class="logo__primary">DEZ</span><span class="logo__secondary">ON</span>
+            </a>
+            
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav__list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="services.html">Услуги и цены</a></li>
+                    <li><a href="index.html#process">Как работаем</a></li>
+                    <li><a href="index.html#calculator">Калькулятор</a></li>
+                    <li><a href="index.html#reviews">Отзывы</a></li>
+                    <li><a href="blog.html" class="active">Статьи</a></li>
+                    <li><a href="index.html#contacts">Контакты</a></li>
+                </ul>
+                
+                <div class="header__contacts">
+                    <a href="tel:+79138572271" class="phone">8-913-857-22-71</a>
+                    <p class="work-hours">Круглосуточно</p>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="blog-page">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="animate-on-scroll" data-animation="fadeInUp">Полезные статьи</h1>
+                <p class="page-subtitle animate-on-scroll" data-animation="fadeInUp" data-delay="200">Советы специалистов по борьбе с вредителями и профилактике</p>
+            </div>
+        </section>
+
+        <section class="blog-content">
+            <!-- Анимированный фон для блога -->
+            <div class="blog-background"></div>
+            <div class="blog-strip strip-1"></div>
+            <div class="blog-strip strip-2"></div>
+            <div class="blog-strip strip-3"></div>
+            <div class="blog-strip strip-4"></div>
+            <div class="blog-strip strip-5"></div>
+            
+            <div class="container">
+                <div class="blog-grid">
+                    <!-- Статья 1 -->
+                    <article class="blog-post animate-on-scroll" data-animation="zoomIn">
+                        <div class="blog-post__image">
+                            <div class="image-placeholder">🪳</div>
+                        </div>
+                        <div class="blog-post__content">
+                            <span class="blog-post__category">Дезинсекция</span>
+                            <h2 class="blog-post__title">Как избавиться от тараканов: профессиональные методы и профилактика</h2>
+                            <p class="blog-post__excerpt">Тараканы — самые живучие домашние вредители. Узнайте о современных методах борьбы и как предотвратить их повторное появление.</p>
+                            <div class="blog-post__meta">
+                                <span class="date">15 апреля 2024</span>
+                                <span class="read-time">7 мин чтения</span>
+                            </div>
+                            <a href="article-cockroaches.html" class="blog-post__link">Читать статью</a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 2 -->
+                    <article class="blog-post animate-on-scroll" data-animation="zoomIn" data-delay="100">
+                        <div class="blog-post__image">
+                            <div class="image-placeholder">🛏️</div>
+                        </div>
+                        <div class="blog-post__content">
+                            <span class="blog-post__category">Дезинсекция</span>
+                            <h2 class="blog-post__title">Постельные клопы: как обнаружить и правильно бороться</h2>
+                            <p class="blog-post__excerpt">Клопы могут появиться в любой квартире. Узнайте о признаках заражения, эффективных методах борьбы и профилактических мерах.</p>
+                            <div class="blog-post__meta">
+                                <span class="date">3 апреля 2024</span>
+                                <span class="read-time">6 мин чтения</span>
+                            </div>
+                            <a href="article-bedbugs.html" class="blog-post__link">Читать статью</a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 3 -->
+                    <article class="blog-post animate-on-scroll" data-animation="zoomIn" data-delay="200">
+                        <div class="blog-post__image">
+                            <div class="image-placeholder">🐭</div>
+                        </div>
+                        <div class="blog-post__content">
+                            <span class="blog-post__category">Дератизация</span>
+                            <h2 class="blog-post__title">Грызуны в доме: безопасные методы уничтожения и защиты</h2>
+                            <p class="blog-post__excerpt">Мыши и крысы не только портят имущество, но и разносят опасные заболевания. Узнайте о профессиональных методах борьбы с грызунами.</p>
+                            <div class="blog-post__meta">
+                                <span class="date">28 марта 2024</span>
+                                <span class="read-time">8 мин чтения</span>
+                            </div>
+                            <a href="article-rodents.html" class="blog-post__link">Читать статью</a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 4 -->
+                    <article class="blog-post animate-on-scroll" data-animation="zoomIn" data-delay="300">
+                        <div class="blog-post__image">
+                            <div class="image-placeholder">🐜</div>
+                        </div>
+                        <div class="blog-post__content">
+                            <span class="blog-post__category">Дезинсекция</span>
+                            <h2 class="blog-post__title">Муравьи в квартире: откуда берутся и как вывести</h2>
+                            <p class="blog-post__excerpt">Домашние муравьи — проблема многих квартир. Узнайте о причинах их появления, способах борьбы и профилактики.</p>
+                            <div class="blog-post__meta">
+                                <span class="date">20 марта 2024</span>
+                                <span class="read-time">5 мин чтения</span>
+                            </div>
+                            <a href="article-ants.html" class="blog-post__link">Читать статью</a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 5 -->
+                    <article class="blog-post animate-on-scroll" data-animation="zoomIn" data-delay="400">
+                        <div class="blog-post__image">
+                            <div class="image-placeholder">🦠</div>
+                        </div>
+                        <div class="blog-post__content">
+                            <span class="blog-post__category">Дезинфекция</span>
+                            <h2 class="blog-post__title">Дезинфекция помещений: когда необходима и как проводится</h2>
+                            <p class="blog-post__excerpt">Профессиональная дезинфекция защищает от вирусов, бактерий и грибков. Узнайте о методах, препаратов и случаях, когда дезинфекция необходима.</p>
+                            <div class="blog-post__meta">
+                                <span class="date">12 марта 2024</span>
+                                <span class="read-time">6 мин чтения</span>
+                            </div>
+                            <a href="article-disinfection.html" class="blog-post__link">Читать статью</a>
+                        </div>
+                    </article>
+
+                    <!-- Статья 6 -->
+                    <article class="blog-post animate-on-scroll" data-animation="zoomIn" data-delay="500">
+                        <div class="blog-post__image">
+                            <div class="image-placeholder">🏢</div>
+                        </div>
+                        <div class="blog-post__content">
+                            <span class="blog-post__category">Бизнес</span>
+                            <h2 class="blog-post__title">Пест-контроль для бизнеса: требования и реализация</h2>
+                            <p class="blog-post__excerpt">Для кафе, ресторанов, отелей и производств борьба с вредителями обязательна по закону. Узнайте о требованиях и программах пест-контроля.</p>
+                            <div class="blog-post__meta">
+                                <span class="date">5 марта 2024</span>
+                                <span class="read-time">9 мин чтения</span>
+                            </div>
+                            <a href="article-pest-control.html" class="blog-post__link">Читать статью</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="text-center">Частые вопросы</h2>
+                    <div class="faq-list">
+                        <details class="faq-item animate-on-scroll" data-animation="fadeInUp">
+                            <summary class="faq-question">Как подготовить квартиру к обработке?</summary>
+                            <div class="faq-answer">
+                                <p>1. Упакуйте продукты, посуду и средства гигиены<br>
+                                2. Отодвиньте мебель от стен<br>
+                                3. Уберите постельное белье и одежду<br>
+                                4. Обеспечьте доступ к плинтусам и углам<br>
+                                5. Закройте аквариум и отключите компрессор</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item animate-on-scroll" data-animation="fadeInUp" data-delay="100">
+                            <summary class="faq-question">Безопасны ли препараты для детей и животных?</summary>
+                            <div class="faq-answer">
+                                <p>Да, мы используем сертифицированные препараты 4 класса опасности. После обработки и проветривания (2-4 часа) помещение безопасно. Для аллергиков доступны гипоаллергенные средства.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item animate-on-scroll" data-animation="fadeInUp" data-delay="200">
+                            <summary class="faq-question">Даете ли вы гарантию на услуги?</summary>
+                            <div class="faq-answer">
+                                <p>Да, все работы выполняются по договору с гарантией:<br>
+                                - Дезинсекция: 1 год<br>
+                                - Дератизация: 6 месяцев<br>
+                                - Дезинфекция: зависит от типа обработки<br>
+                                В течение гарантийного срока - бесплатная повторная обработка.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Обновленная секция подписки с телеграмом -->
+        <section class="subscribe">
+            <div class="container">
+                <div class="subscribe-content">
+                    <h2 class="animate-on-scroll" data-animation="fadeInUp">Подпишитесь на полезные советы</h2>
+                    <p class="animate-on-scroll" data-animation="fadeInUp" data-delay="200">Присоединяйтесь к нашему Telegram-каналу, где мы публикуем полезные статьи, советы по профилактике и акции</p>
+                    
+                    <div class="subscribe-telegram animate-on-scroll" data-animation="zoomIn" data-delay="400">
+                        <a href="https://t.me/dezon_pro" target="_blank" class="telegram-link">
+                            <span class="telegram-icon">📱</span>
+                            <span>Подписаться на наш канал</span>
+                        </a>
+                        <p class="subscribe-note">Бесплатные советы, актуальные акции, ответы на вопросы</p>
+                    </div>
+                    
+                    <p class="subscribe-note animate-on-scroll" data-animation="fadeInUp" data-delay="600">Или оставьте email для получения статей на почту</p>
+                    <form class="subscribe-form animate-on-scroll" data-animation="fadeInUp" data-delay="800">
+                        <input type="email" placeholder="Ваш email" required>
+                        <button type="submit" class="btn btn--primary">Подписаться на рассылку</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальные окна -->
+    <div class="modal" id="consultModal">
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Закрыть">&times;</button>
+            <h3 class="modal__title">Бесплатная консультация</h3>
+            <p class="modal__text">Оставьте контакты, и наш специалист перезвонит вам в течение 15 минут</p>
+            
+            <form id="consultForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Опишите проблему (необязательно)" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--block">Жду звонка</button>
+                <p class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo__primary">DEZ</span><span class="logo__secondary">ON</span>
+                    </a>
+                    <p class="footer__text">Профессиональная дезинсекция, дератизация и дезинфекция. Работаем с 2016 года.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                        <a href="https://t.me/dezon_pro" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer__col">
+                    <h4 class="footer__title">Контакты</h4>
+                    <div class="footer__contacts">
+                        <a href="tel:+79138572271" class="contact-link"><i class="fas fa-phone"></i> 8-913-857-22-71</a>
+                        <p class="contact-text">Круглосуточно</p>
+                        <a href="mailto:prokudinvladislav9@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> prokudinvladislav9@gmail.com</a>
+                        <p class="contact-text"><i class="fas fa-map-marker-alt"></i> г. Алтайская, ул. Алтайская, д. 10</p>
+                    </div>
+                </div>
+                
+                <div class="footer__col">
+                    <h4 class="footer__title">Остались вопросы?</h4>
+                    <form id="footerForm" class="footer-form">
+                        <input type="text" name="name" placeholder="Имя" required>
+                        <input type="tel" name="phone" placeholder="Телефон" required>
+                        <button type="submit" class="btn btn--primary"><i class="fas fa-phone-alt"></i> Перезвоните мне</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer__bottom" style="color: #ffffff;">
+                <p style="color: #ffffff;">&copy; 2024 DEZON. Все права защищены.</p>
+                <p style="color: #ffffff;">ИП Иванов И.И. | ОГРНИП 123456789012345</p>
+                <a href="#" class="footer__link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="callback-widget" aria-label="Заказать обратный звонок" data-modal="consult">
+        <span class="callback-widget__icon"><i class="fas fa-phone-alt"></i></span>
+        <span class="callback-widget__text">Заказать звонок</span>
+    </button>
+
+    <!-- Кнопка наверх -->
+    <button class="scroll-top" aria-label="Наверх">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Подключение JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/web-background.js"></script>
+</body>
+</html>
